@@ -11,6 +11,9 @@ A simple feed reader
                 ->read();
    
     echo $rss->getTitle(); // Get the channel title
+
+    // Access channel extra field
+    echo $rss->channel()->extra
     
     foreach ($rss->items() as $item) {
         echo $item->title; // Get the item title
@@ -25,6 +28,9 @@ A simple feed reader
     
     echo $atom->getTitle(); // Title
     echo $atom->getUpdated()->format('d F, Y'); // Last Updated Date
+
+    // Access channel extra field
+    echo $rss->feed()->extra
 
     foreach ($atom->entries() as $entry) {
         echo $entry->title; // Get the item title
@@ -41,8 +47,12 @@ If your feed resource are protected by HTTP Basic Auth then you can use `basicAu
 
 $feed = new \Mehedi\Feed();
 
-$feed->rss('url')->basicAuth('username', 'password')->read();
+$feed->rss('url')
+     ->basicAuth('username', 'password')
+     ->read();
 // OR
-$feed->atom('url')->basicAuth('username', 'password')->read();
+$feed->atom('url')
+     ->basicAuth('username', 'password')
+     ->read();
 
 ```
