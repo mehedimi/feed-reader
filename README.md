@@ -54,5 +54,13 @@ $feed->rss('url')
 $feed->atom('url')
      ->basicAuth('username', 'password')
      ->read();
+```
 
+## With Laravel
+
+```php
+<?php
+    // Just use Feed Facade
+    $rss = \Mehedi\Facades\Feed::rss('url')->read();
+  
 ```
