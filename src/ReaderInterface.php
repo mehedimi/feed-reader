@@ -10,5 +10,5 @@ interface ReaderInterface
      * @param $url
      * @return mixed
      */
-    public function url($url);
+    public function rss($url);
 }

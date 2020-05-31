@@ -1,56 +1,72 @@
 <?php
 
+use Mehedi\Feed;
 use PHPUnit\Framework\TestCase;
 
 class RSSTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function it_return_request_object()
+    protected function getRssRequest($url = 'http://static.userland.com/gems/backend/rssTwoExample2.xml')
     {
-        $rss = new \Mehedi\RSS();
-
-        $response = $rss->url('http://static.userland.com/gems/backend/rssTwoExample2.xml');
-
-        $this->assertInstanceOf(\Mehedi\Http\Request::class, $response);
+        return (new Feed())->rss($url);
     }
 
     /**
      * @test
      */
-    public function it_can_return_response_rss()
+    function it_can_get_channel_title_data()
     {
-        $rss = new \Mehedi\RSS();
+        $response = $this->getRssRequest()->read();
 
-        $response = $rss->url('http://static.userland.com/gems/backend/rssTwoExample2.xml')->read();
+        $this->assertEquals('Scripting News', $response->getTitle());
+    }
 
-        $this->assertInstanceOf(\Mehedi\Http\Response::class, $response);
+
+    /**
+     * @test
+     */
+    function it_can_countable_items()
+    {
+        $response = $this->getRssRequest()->read();
+
+        $this->assertCount(9, $response->items());
     }
 
     /**
      * @test
      */
-    public function it_can_handle_not_found_url()
+    function it_can_access_extra_channel_info()
     {
-        $rss = new \Mehedi\RSS();
+        $response = $this->getRssRequest()->read();
 
-        $response = $rss->url('http://invalid-url.com')->read();
-
-        $this->assertTrue($response->isNotOk());
+        $this->assertEquals('40', $response->channel()->ttl);
     }
 
     /**
      * @test
      */
-    public function it_can_save_xml_as_file()
+    function items_as_array()
     {
-        $rss = new \Mehedi\RSS();
+        $response = $this->getRssRequest()->read();
 
-        $response = $rss->url('http://static.userland.com/gems/backend/rssTwoExample2.xml')->read();
+        $this->assertIsArray($response->itemsAsArray()[0]);
+        $this->assertCount(9, $response->itemsAsArray());
+        $this->assertIsArray($response->itemsAsArray());
+    }
 
-//        $response->saveAsXml('./../rss.xml');
-        echo $response->toXml();
-//        $this->assertXmlStringEqualsXmlFile('./../rss.xml', $response->toXml());
+    /**
+     * @test
+     */
+    function items_as_json()
+    {
+        $response = $this->getRssRequest()->read();
+
+        $this->assertJson($response->itemsAsJSON());
+    }
+
+    public function test_count_items()
+    {
+        $response = $this->getRssRequest()->read();
+
+        $this->assertEquals(9, $response->itemsCount());
     }
 }
