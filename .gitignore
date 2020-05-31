@@ -4,3 +4,4 @@ vendor/
 .phpunit.result.cache
 rss.xml
 atom.xml
+composer.lock
