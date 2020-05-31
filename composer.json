@@ -20,5 +20,12 @@
     "require-dev": {
         "phpunit/phpunit": "^8.5",
         "symfony/var-dumper": "^5.0"
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Feed": "Mehedi\\Facades\\Feed"
+            }
+        }
     }
 }
