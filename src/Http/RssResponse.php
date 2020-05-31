@@ -79,7 +79,7 @@ class RssResponse extends AbstractResponse
      */
     public function itemsAsJSON()
     {
-        return json_encode($this->items());
+        return json_encode($this->itemsAsArray());
     }
 
     /**

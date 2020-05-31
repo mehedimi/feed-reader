@@ -81,7 +81,7 @@ class AtomResponse extends AbstractResponse
      */
     public function entriesAsJSON()
     {
-        return json_encode($this->entries());
+        return json_encode($this->entriesAsArray());
     }
 
     /**
