@@ -77,4 +77,11 @@ class AtomTest extends TestCase
 
         $this->assertEquals(10, $response->entriesCount());
     }
+
+    function test_attribute_of_entry()
+    {
+        $response = $this->getAtomRequest()->read();
+
+        $this->assertEquals('html', $response->entries()[0]->summary->attributes()->type);
+    }
 }
