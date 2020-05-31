@@ -1,6 +1,9 @@
 # Feed Reader
 A simple feed reader
-
+## Installation
+```bash
+$ composer require mehedimi/rss-reader
+```
 ## Basic Uses:
 
 ```php

@@ -1,6 +1,8 @@
 {
     "name": "mehedimi/rss-reader",
-    "description": "A package for reading RSS Feed",
+    "version": "1.0",
+    "description": "A package for reading rss or atom feed",
+    "license": ["MIT"],
     "authors": [
         {
             "name": "Mehedi Hasan",
@@ -8,9 +10,10 @@
         }
     ],
     "require": {
-      "ext-curl": "*",
-      "ext-simplexml": "*",
-      "ext-json": "*"
+        "php": ">=5.6",
+        "ext-curl": "*",
+        "ext-simplexml": "*",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {
