@@ -3,10 +3,12 @@
 namespace Mehedi\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Mehedi\Http\AtomRequest;
+use Mehedi\Http\RssRequest;
 
 /**
- * @method static \Mehedi\Feed rss(string $url)
- * @method static \Mehedi\Feed atom(string $url)
+ * @method static RssRequest rss(string $url)
+ * @method static AtomRequest atom(string $url)
  *
  * @see \Mehedi\Feed
  */
