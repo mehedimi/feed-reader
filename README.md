@@ -13,7 +13,7 @@ A simple feed reader
     echo $rss->getTitle(); // Get the channel title
 
     // Access channel extra field
-    echo $rss->channel()->extra
+    echo $rss->channel()->extra;
     
     foreach ($rss->items() as $item) {
         echo $item->title; // Get the item title
@@ -30,7 +30,7 @@ A simple feed reader
     echo $atom->getUpdated()->format('d F, Y'); // Last Updated Date
 
     // Access channel extra field
-    echo $rss->feed()->extra
+    echo $atom->feed()->extra;
 
     foreach ($atom->entries() as $entry) {
         echo $entry->title; // Get the item title
