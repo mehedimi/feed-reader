@@ -1,5 +1,5 @@
 {
-    "name": "mehedimi/rss-reader",
+    "name": "mehedimi/feed-reader",
     "version": "1.0",
     "description": "A package for reading rss or atom feed",
     "license": ["MIT"],
