@@ -2,7 +2,7 @@
 A simple feed reader
 ## Installation
 ```bash
-$ composer require mehedimi/rss-reader
+$ composer require mehedimi/feed-reader
 ```
 ## Basic Uses:
 
